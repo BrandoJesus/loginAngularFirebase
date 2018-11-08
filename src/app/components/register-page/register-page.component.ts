@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegisterPageComponent implements OnInit {
   public email: string;
   public password: string;
-  constructor( public authService: AuthService, public routers: Router ) { }
+  constructor( public authService: AuthService, public router: Router ) { }
 
   ngOnInit() {
   }
@@ -19,7 +19,7 @@ export class RegisterPageComponent implements OnInit {
     this.authService.registerUser(this.email, this.password)
     .then( (res) => {
       console.log('ok ', res);
-      this.routers.navigate(['/privado']);
+      this.router.navigate(['/privado']);
     })
     .catch((err) => {
       console.log('error ', err);
