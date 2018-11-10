@@ -35,4 +35,16 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+  onClickGoogleLogin() {
+    this.authService.loginGoogle()
+    .then((res) => {
+      console.log("Google");
+      
+      this.router.navigate(['/privado']);
+    })
+    .catch( err => {
+      console.log(err.message);
+    });
+  }
+
 }

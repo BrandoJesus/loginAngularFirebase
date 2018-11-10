@@ -10,6 +10,10 @@ import { map } from 'rxjs/operators';
 export class AuthService {
 
   constructor(  public afAuth: AngularFireAuth ) { }
+
+  loginGoogle(){
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  }
   
   registerUser(email: string, pass: string){
     return new Promise((resolve, reject) => {
